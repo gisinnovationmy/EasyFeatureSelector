@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EasyFeatureSelectionDialogBase</class>
+ <widget class="QDialog" name="EasyFeatureSelectionDialogBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Easy Feature Selector</string>
+  </property>
+  <layout class="QHBoxLayout" name="main_layout">
+   <item>
+    <layout class="QVBoxLayout" name="left_layout">
+  <item>
+    <widget class="QLabel" name="raster_warning_label">
+      <property name="text">
+        <string>Only vectors are supported</string>
+      </property>
+      <property name="styleSheet">
+        <string notr="true">color: red</string>
+      </property>
+    </widget>
+  </item>
+     <item>
+      <widget class="QgsCollapsibleGroupBox" name="field_group_box">
+       <property name="title">
+        <string>Field Selection</string>
+       </property>
+       <layout class="QVBoxLayout" name="field_group_layout">
+        <item>
+         <widget class="QLabel" name="field_label">
+          <property name="text">
+           <string>Select Field from Attribute Table:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="field_combo_box"/>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QgsCollapsibleGroupBox" name="values_group_box">
+       <property name="title">
+        <string>Unique Values</string>
+       </property>
+       <layout class="QVBoxLayout" name="values_group_layout">
+        <item>
+         <widget class="QLabel" name="unique_values_label">
+          <property name="text">
+           <string>Select From the Unique Values</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="unique_values_list"/>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QgsCollapsibleGroupBox" name="search_group_box">
+       <property name="title">
+        <string>Search and Zoom Options</string>
+       </property>
+       <layout class="QVBoxLayout" name="search_group_layout">
+        <item>
+         <widget class="QLabel" name="search_label">
+          <property name="text">
+           <string>Search in Unique Values:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="search_box">
+          <property name="placeholderText">
+           <string>Search...</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="interact_checkbox">
+          <property name="text">
+           <string>Interactive Zooming and Panning to Selected Feature</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="zoom_label">
+          <property name="text">
+           <string>Select zoom level:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QSlider" name="zoom_slider">
+          <property name="minimum">
+           <number>0</number>
+          </property>
+          <property name="maximum">
+           <number>100</number>
+          </property>
+          <property name="value">
+           <number>20</number>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="tickPosition">
+           <enum>QSlider::TicksBelow</enum>
+          </property>
+          <property name="tickInterval">
+           <number>5</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="two_way_selection_checkbox">
+          <property name="text">
+           <string>Enable two-way selection</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="close_button">
+       <property name="text">
+        <string>Close</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QgsCollapsibleGroupBox" name="table_group_box">
+     <property name="title">
+      <string>Feature Attributes</string>
+     </property>
+     <layout class="QVBoxLayout" name="table_layout">
+      <item>
+       <widget class="QTableWidget" name="table_widget">
+        <property name="columnCount">
+         <number>2</number>
+        </property>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderCascadingSectionResizes">
+         <bool>true</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Field Name</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Value</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="copy_button">
+        <property name="text">
+         <string>Copy Table Data to Clipboard</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QgsCollapsibleGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>qgscollapsiblegroupbox.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
