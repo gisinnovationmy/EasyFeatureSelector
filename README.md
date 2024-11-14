@@ -87,7 +87,7 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 
 ## Tutorial 
 
-Guide for **Easy Feature Selector** is available here: [Easy Feature Selector](https://gis.com.my/training/qgis-plugin/easy-feature-selector/)
+Guide for **Easy Feature Selector** is available here: [Easy Feature Selector](https://gis.com.my/training/qgis-plugin/easy-feature-selector/).
 
 
 ## Installation
