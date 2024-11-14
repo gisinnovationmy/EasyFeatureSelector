@@ -1,5 +1,5 @@
 # Easy Feature Selector
-
+<div align="justify">
 Easy Feature Selector plugin for QGIS is a practical tool designed to simplify interactions with vector data. 
 
 It provides a straightforward interface for selecting fields from an attribute table, browsing and searching unique values, and zooming or panning to features directly on the map. 
@@ -13,10 +13,11 @@ The extension is available from the official repository [QGIS plugins page](http
 Use the QGIS Plugins menu to install the Easy Feature Selector [QGIS manual](https://docs.qgis.org/3.34/en/docs/user_manual/plugins/plugins.html).
 
 Easy Feature Selector is under development and test with QGIS 3.34.
+</div>
 
 
 ## Functionality
-
+<div align="justify">
 - Allows users to select fields (columns) from the attribute table of an active vector layer.
 - Displays and highlights unique values for the selected field, enabling quick navigation and selection with interactive zooming and panning options to automatically focus on selected features.
 - Allows users to filter unique values to locate them quickly.
@@ -25,6 +26,7 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 - Displays a table of attribute data for the selected feature, including an indicator for whether a feature has valid geometry.
 - Highlights features without geometry in yellow and prevents zooming/panning to them.
 - Allows users to copy all attribute data to the clipboard for easy export.
+</div>
 
 
 ## Interface
@@ -86,12 +88,12 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 
 
 ## Tutorial 
-
+<div align="justify">
 Guide for **Easy Feature Selector** is available here: [Easy Feature Selector](https://gis.com.my/training/qgis-plugin/easy-feature-selector/).
 
 
 ## Installation
-
+<div align="justify">
 Go to *Plugins > Manage and Install Plugins.. > All*.
 
 Search for **Easy Feature Selector**.
@@ -104,6 +106,7 @@ Go to *Plugins > Manage and Install Plugins.. > Install from ZIP*.
 
 
 After installation, the plugin will appear under *Vector* menu.
+</div>
 
 <p align="center">
   <img src="images/EasyFeatureSelectorPath.png" alt="Alt text">
@@ -111,14 +114,16 @@ After installation, the plugin will appear under *Vector* menu.
 
 
 ## License
-
+<div align="justify">
 This plugin is distributed under GNU GPL v.2 or any later version.
+</div>
 
 
 ## Support
-
+<div align="justify">
 We've just begun and have implemented basic functionality so far. Our goal is to expand the range of services and introduce new features.
 
 We appreciate any feedback, and pull requests are welcome on **GitHub**.
 
 To get started, refer to the user guide, or you can ask questions and share comments in the discussion section.
+</div>
