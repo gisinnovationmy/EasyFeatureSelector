@@ -10,7 +10,7 @@ The plugin also displays detailed attribute information, including a clear indic
 
 The extension is available from the official repository [QGIS plugins page](https://plugins.qgis.org/plugins/). 
 
-Use the QGIS Plugins menu to install the Random Points on Lines... [QGIS manual](https://docs.qgis.org/3.34/en/docs/user_manual/plugins/plugins.html).
+Use the QGIS Plugins menu to install the Easy Feature Selector [QGIS manual](https://docs.qgis.org/3.34/en/docs/user_manual/plugins/plugins.html).
 
 Easy Feature Selector is under development and test with QGIS 3.34.
 
@@ -38,36 +38,38 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 
 1. Field Selection
 
-The first section you will see in the dialog is called Field Selection. It contains a dropdown menu listing all the fields (or columns) from the active vector layer’s attribute table. Simply click on the dropdown and choose the field you’re interested in. This selection will automatically update the list of unique values in the next section.
+  The first section you will see in the dialog is called Field Selection. It contains a dropdown menu listing all the fields (or columns) from the active vector layer’s attribute table. Simply click on the dropdown and choose the field you’re interested in. This selection will automatically update the list of unique values in the next section.
 
 2. Unique Values
 
-Once you have selected a field, this section will show all the unique values from that field. For example, if you choose a field called 'City,' this list will display all the unique city names in your data. You can click on a value with your mouse or use the arrow keys on your keyboard to navigate and select. The selected value will highlight all matching features on the map. You can easily scroll through and select values using your keyboard for a more efficient workflow.
+  Once you have selected a field, this section will show all the unique values from that field. For example, if you choose a field called 'City,' this list will display all the unique city names in your data. You can click on a value with your mouse or use the arrow keys on your keyboard to navigate and select. The selected value will highlight all matching features on the map. You can easily scroll through and select values using your keyboard for a more efficient workflow.
 
 3. Search and Zoom Options
 
-This section gives you more control over how you interact with the features on the map.
+  This section gives you more control over how you interact with the features on the map.
 
-**Components:**
+  **Components:**
 
-- **Search Box:** If you have a long list of unique values, type in this box to filter and quickly find what you’re looking for.
-- **Interactive Zooming and Panning:** Check this box if you want the map to automatically zoom and pan to the selected feature.
-- **Zoom Level Slider:** Adjust this slider to control how much the map zooms in when a feature is selected. Slide left for less zoom and right for more zoom.
-- **Two-Way Selection:** Enable this option to make your selection work both ways. If you select a feature on the map, it will automatically highlight the corresponding value in the list, and vice versa.
+  - **Search Box:** If you have a long list of unique values, type in this box to filter and quickly find what you’re looking for.
+  - **Interactive Zooming and Panning:** Check this box if you want the map to automatically zoom and pan to the selected feature.
+  - **Zoom Level Slider:** Adjust this slider to control how much the map zooms in when a feature is selected. Slide left for less zoom and right for more zoom.
+  - **Two-Way Selection:** Enable this option to make your selection work both ways. If you select a feature on the map, it will automatically highlight the corresponding value in the list, and vice versa.
 
 4. Feature Attributes Table
 
-This table shows you all the attribute data for the feature you have selected. It includes the names of the fields and their corresponding values.
+  This table shows you all the attribute data for the feature you have selected. It includes the names of the fields and their corresponding values.
 
-Special Row - Geometry_Type:
+  Special Row - Geometry_Type:
 
-- **Purpose:** At the very top of the table, there is a special row called 'Geometry_Type.' It tells you if the selected feature has geometry or not.  This means that if the feature has a valid geometry  (i.e: like a point, line, or polygon), it will say 'Has a Geometry'. If the feature doesn’t have a shape, it will say 'Has No Geometry,' and the cell will be highlighted in yellow. This way, you will know that zooming to this feature won’t work.
+  - **Purpose:** At the very top of the table, there is a special row called 'Geometry_Type.' It tells you if the selected feature has geometry or not.  This means that if the feature has a valid geometry  (i.e: like a point, line, or polygon), it will say 'Has a Geometry'. If the feature doesn’t have a shape, it will say 'Has No Geometry,' and the cell will be highlighted in yellow. This way, you will know that zooming to this feature won’t work.
 
 5. Copy Table Data to Clipboard
-There is a button labeled 'Copy Table Data to Clipboard' right below the table. When clicking this button to copy everything from the table to your clipboard. You can then paste it into a spreadsheet, text document, or anywhere else you want to use the data.
+  
+  There is a button labeled 'Copy Table Data to Clipboard' right below the table. When clicking this button to copy everything from the table to your clipboard. You can then paste it into a spreadsheet, text document, or anywhere else you want to use the data.
 
 6. Close Button
-Click this button when you are done using the Easy Feature Selector to close the dialog.
+  
+  Click this button when you are done using the Easy Feature Selector to close the dialog.
 
 
 ## Tutorial 
