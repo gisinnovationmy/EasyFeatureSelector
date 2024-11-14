@@ -42,6 +42,8 @@ Easy Feature Selector is under development and test with QGIS 3.34.
   The first section you will see in the dialog is called Field Selection. It contains a dropdown menu listing all the fields (or columns) from the active vector layer’s attribute table. Simply click on the dropdown and choose the field you’re interested in. This selection will automatically update the list of unique values in the next section.
 </div>
 
+<br></br>
+
 2. Unique Values
 
   Once you have selected a field, this section will show all the unique values from that field. For example, if you choose a field called 'City,' this list will display all the unique city names in your data. You can click on a value with your mouse or use the arrow keys on your keyboard to navigate and select. The selected value will highlight all matching features on the map. You can easily scroll through and select values using your keyboard for a more efficient workflow.
