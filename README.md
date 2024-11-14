@@ -36,9 +36,11 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 
 ## Using the Easy Feature Selector
 
+<div align="justify">
 1. Field Selection
 
   The first section you will see in the dialog is called Field Selection. It contains a dropdown menu listing all the fields (or columns) from the active vector layer’s attribute table. Simply click on the dropdown and choose the field you’re interested in. This selection will automatically update the list of unique values in the next section.
+</div>
 
 2. Unique Values
 
