@@ -9,9 +9,9 @@ The plugin also displays detailed attribute information, including a clear indic
 **Note:** Even though you can select multiple features with the same unique field value, this tool was developed with the intent of working with one feature at a time.
 <br></br>
 The extension is available from the official repository [QGIS plugins page](https://plugins.qgis.org/plugins/). 
-
+<br></br>
 Use the QGIS Plugins menu to install the Easy Feature Selector [QGIS manual](https://docs.qgis.org/3.34/en/docs/user_manual/plugins/plugins.html).
-
+<br></br>
 Easy Feature Selector is under development and test with QGIS 3.34.
 </div>
 
@@ -98,9 +98,9 @@ Go to *Plugins > Manage and Install Plugins.. > All*.
 Search for **Easy Feature Selector**.
 <br></br>  
 OR
-<br></br>  
-Download the zip file in [Github](https://github.com/gisinnovationmy/EasyFeatureSelector).
 
+Download the zip file in [Github](https://github.com/gisinnovationmy/EasyFeatureSelector).
+<br></br>  
 Go to *Plugins > Manage and Install Plugins.. > Install from ZIP*.
 
 
@@ -121,8 +121,8 @@ This plugin is distributed under GNU GPL v.2 or any later version.
 ## Support
 <div align="justify">
 We've just begun and have implemented basic functionality so far. Our goal is to expand the range of services and introduce new features.
-<br></br>  
+
 We appreciate any feedback, and pull requests are welcome on **GitHub**.
-<br></br>  
+
 To get started, refer to the user guide, or you can ask questions and share comments in the discussion section.
 </div>
