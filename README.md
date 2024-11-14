@@ -52,6 +52,7 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 3. Search and Zoom Options
 <br></br>
   This section gives you more control over how you interact with the features on the map.
+<br></br>
 
   **Components:**
 
@@ -65,8 +66,9 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 4. Feature Attributes Table
 <br></br>
   This table shows you all the attribute data for the feature you have selected. It includes the names of the fields and their corresponding values.
+<br></br>
 
-  Special Row - Geometry_Type:
+  **Special Row - Geometry_Type:**
 
   - **Purpose:** At the very top of the table, there is a special row called 'Geometry_Type.' It tells you if the selected feature has geometry or not.  This means that if the feature has a valid geometry  (i.e: like a point, line, or polygon), it will say 'Has a Geometry'. If the feature doesn’t have a shape, it will say 'Has No Geometry,' and the cell will be highlighted in yellow. This way, you will know that zooming to this feature won’t work.
 </div>
