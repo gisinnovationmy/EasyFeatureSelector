@@ -90,7 +90,8 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 
 <div align="justify">
 1. Layer Management
-<br></br>
+<br></br> 
+
 - **New Layer Selection Group Box**: Dedicated section for layer management
 - **Dynamic Layer Selection**: New option to allow dynamic layer selection while working
 - **Layer Combo Box**: QGIS-native layer selection widget (QgsMapLayerComboBox)
@@ -99,7 +100,8 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 <br></br>
 <div align="justify">
 2. UI Improvements
-<br></br>
+<br></br> 
+
   **Split Panel Design**:
 
   - Adjustable left/right panels with splitter
@@ -109,7 +111,8 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 <br></br>
 <div align="justify">
 3. Feature Attributes
-<br></br>
+<br></br> 
+
   **Enhanced Table Features**:
   - New "Additional Selection" column option
   - Second level selection capability
@@ -119,7 +122,8 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 <br></br>
 <div align="justify">
 4. Search and Selection
-<br></br>
+<br></br> 
+
   **Advanced Selection Features**:
   - Radio button selection in attribute table
   - Combo box selection for field values
@@ -128,7 +132,8 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 <br></br>
 <div align="justify">
 5. Technical Enhancements
-<br></br>
+<br></br> 
+
   **Signal Management**:
   - Improved signal connection/disconnection handling
   - Better error handling for layer changes
@@ -137,7 +142,8 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 <br></br>
 <div align="justify">
 6. Memory Management
-<br></br>
+<br></br> 
+
   **Optimized Resource Usage**:
   - Better widget cleanup on layer changes
   - Improved memory handling for large datasets
@@ -147,6 +153,7 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 <div align="justify">
 7. Visual Feedback
 <br></br>  
+<br></br> 
 
   **Enhanced User Experience**:
   - Modern styling for all components
