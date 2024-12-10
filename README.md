@@ -9,9 +9,9 @@ The plugin also displays detailed attribute information, including a clear indic
 **Note:** Even though you can select multiple features with the same unique field value, this tool was developed with the intent of working with one feature at a time.
 
 
-The extension is available from the official repository [QGIS plugins page](https://plugins.qgis.org/plugins/easyfeatureselection/). 
+The extension is available from the official repository, [QGIS plugins page](https://plugins.qgis.org/plugins/easyfeatureselection/). 
 
-Use the QGIS Plugins menu to install the Easy Feature Selector [QGIS manual](https://docs.qgis.org/3.34/en/docs/user_manual/plugins/plugins.html).
+Use the QGIS Plugins menu to install the Easy Feature Selector, [QGIS manual](https://docs.qgis.org/3.34/en/docs/user_manual/plugins/plugins.html).
 
 Easy Feature Selector is under development and test with QGIS 3.34.
 
@@ -38,19 +38,30 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 ## Using the Easy Feature Selector
 
 <div align="justify">
-1. Field Selection
+1. Layer Selection
 <br></br>
-  The first section you will see in the dialog is called Field Selection. It contains a dropdown menu listing all the fields (or columns) from the active vector layer’s attribute table. Simply click on the dropdown and choose the field you’re interested in. This selection will automatically update the list of unique values in the next section.
+  The first section you will see in the dialog is called Layer Selection. It contains a dropdown menu listing all the vector layers. If it is not a vector layer, an error will display "This Plugin Supports Only Vectors". Simply click on the dropdown and choose the layer you are interested in. This selection will automatically update the list of all fields from the active vector layer in the next section.
+<br></br>
+
+  **Component:**
+
+  - **Dynamic Layer Selection:** Enable this option to make your selection work both ways. If you select a layer in the Layers Panel, it will automatically change the layer in the Layer Selection, and vice versa.
 </div>
 <br></br>
 <div align="justify">
-2. Unique Values
+2. Field Selection
+<br></br>
+  The next section that you will see in the dialog is called Field Selection. It contains a dropdown menu listing all the fields (or columns) from the active vector layer’s attribute table. Simply click on the dropdown and choose the field you are interested in. This selection will automatically update the list of unique values in the next section.
+</div>
+<br></br>
+<div align="justify">
+3. Unique Values
 <br></br>
   Once you have selected a field, this section will show all the unique values from that field. For example, if you choose a field called 'City,' this list will display all the unique city names in your data. You can click on a value with your mouse or use the arrow keys on your keyboard to navigate and select. The selected value will highlight all matching features on the map. You can easily scroll through and select values using your keyboard for a more efficient workflow.
 </div>
 <br></br>
 <div align="justify">
-3. Search and Zoom Options
+4. Search and Zoom Options
 <br></br>
   This section gives you more control over how you interact with the features on the map.
 <br></br>
@@ -64,9 +75,14 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 </div>
 <br></br>
 <div align="justify">
-4. Feature Attributes Table
+5. Feature Attributes Table
 <br></br>
   This table shows you all the attribute data for the feature you have selected. It includes the names of the fields and their corresponding values.
+<br></br>
+
+  **Component:**
+
+  - **2nd Selection:** Enable this option to display a column named "Additional Selection" to choose a value for the corresponding field. If you select a feature attribute with multiple values, a list of values will be displayed in the dropdown for that field.
 <br></br>
 
   **Special Row - Geometry_Type:**
@@ -75,13 +91,13 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 </div>
 <br></br>
 <div align="justify">
-5. Copy Table Data to Clipboard
+6. Copy Table Data to Clipboard
 <br></br>  
   There is a button labeled 'Copy Table Data to Clipboard' right below the table. When clicking this button to copy everything from the table to your clipboard. You can then paste it into a spreadsheet, text document, or anywhere else you want to use the data.
 </div>
 <br></br>
 <div align="justify">
-6. Close Button
+7. Close Button
 <br></br>  
   Click this button when you are done using the Easy Feature Selector to close the dialog.
 
@@ -153,7 +169,6 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 <div align="justify">
 7. Visual Feedback
 <br></br>  
-<br></br> 
 
   **Enhanced User Experience**:
   - Modern styling for all components
