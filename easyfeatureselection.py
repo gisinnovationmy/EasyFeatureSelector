@@ -195,7 +195,7 @@ class EasyFeatureSelection:
     def onClosePlugin(self):
         """Cleanup necessary items here when plugin dialog is closed"""
 
-        #print "** CLOSING RandomPointsonLines..."
+        #print "** CLOSING Easy Feature Selector"
 
         # disconnects
         self.dlg.closingPlugin.disconnect(self.onClosePlugin)

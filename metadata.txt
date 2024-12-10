@@ -1,8 +1,8 @@
 [general]
 name=Easy Feature Selector
 qgisMinimumVersion=3.0
-description=The Easy Feature Selector plugin for QGIS is a practical tool designed to simplify interactions with vector data. 
-version=1.0.0
+description=The Easy Feature Selector plugin helps you select and examine vector layer features by their attribute values. Works with any vector layer and shows feature details in an organized interface.
+version=1.0.1
 author=GIS Innovation Sdn. Bhd.
 email=mygis@gis.my
 
@@ -13,7 +13,7 @@ homepage=https://gis.com.my/training/qgis-plugin/easy-feature-selector/
 tracker=https://github.com/gisinnovationmy/EasyFeatureSelector/issues
 repository=https://github.com/gisinnovationmy/EasyFeatureSelector
 
-tags=python
+tags=vector , feature , python , project , search , attribute , unique values , select , openstreetmap , fields , geometry , OSM , zoom , layers , tables
 category=Vector
 icon=icon.png
 experimental=False
@@ -23,3 +23,10 @@ server=False
 
 changelog=1.0.0 
           - Initial release of the plugin.
+
+        1.0.1
+        - Updated description.
+        - Updated documentation.
+        - Reorganized group boxes, improved spacing and margins, and enhanced window size management for a better UI workflow.
+        - Selection behavior has been enhanced with two-way selection functionality, improved zoom and pan performance, and better handling of feature highlighting.
+        - Enhance error handling with more robust layer type checking, better handling of null values, and improved error messages.

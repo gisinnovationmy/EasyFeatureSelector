@@ -26,7 +26,8 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 - Displays a table of attribute data for the selected feature, including an indicator for whether a feature has valid geometry.
 - Highlights features without geometry in yellow and prevents zooming/panning to them.
 - Allows users to copy all attribute data to the clipboard for easy export.
-
+- Enables dynamic layer selection, ensuring that selecting a layer in the Layers Panel automatically updates the Layer Selection, and vice versa.
+- Enable 2nd level selection to display a dropdown list of values for fields with multiple values.
 
 ## Interface
 
@@ -197,6 +198,13 @@ After installation, the plugin will appear under *Vector* menu.
 <p align="center">
   <img src="images/EasyFeatureSelectorPath.png" alt="Alt text">
 </p>
+
+
+## Tips
+
+- Turn on dynamic selection to work with multiple layers quickly.
+- Use the zoom slider to control how close the view gets to selected features.
+- The search box helps find values in large datasets instantly.
 
 
 ## License
