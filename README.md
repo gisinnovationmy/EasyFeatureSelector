@@ -9,7 +9,7 @@ The plugin also displays detailed attribute information, including a clear indic
 **Note:** Even though you can select multiple features with the same unique field value, this tool was developed with the intent of working with one feature at a time.
 
 
-The extension is available from the official repository [QGIS plugins page](https://plugins.qgis.org/plugins/). 
+The extension is available from the official repository [QGIS plugins page](https://plugins.qgis.org/plugins/easyfeatureselection/). 
 
 Use the QGIS Plugins menu to install the Easy Feature Selector [QGIS manual](https://docs.qgis.org/3.34/en/docs/user_manual/plugins/plugins.html).
 
@@ -84,6 +84,61 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 6. Close Button
 <br></br>  
   Click this button when you are done using the Easy Feature Selector to close the dialog.
+
+
+## New Features
+
+1. Layer Management
+
+- **New Layer Selection Group Box**: Dedicated section for layer management
+- **Dynamic Layer Selection**: New option to allow dynamic layer selection while working
+- **Layer Combo Box**: QGIS-native layer selection widget (QgsMapLayerComboBox)
+- **Improved Raster Warning**: Clear visual warning when raster layers are selected
+
+2. UI Improvements
+
+  **Split Panel Design**:
+
+  - Adjustable left/right panels with splitter
+  - Minimum width constraints for better usability
+  - Resizable panels for custom workspace
+
+3. Feature Attributes
+
+  **Enhanced Table Features**:
+  - New "Additional Selection" column option
+  - Second level selection capability
+  - Copy to clipboard functionality
+  - Improved table styling and header design
+
+4. Search and Selection
+
+  **Advanced Selection Features**:
+  - Radio button selection in attribute table
+  - Combo box selection for field values
+  - Value cell updates with combo box options
+
+5. Technical Enhancements
+
+  **Signal Management**:
+  - Improved signal connection/disconnection handling
+  - Better error handling for layer changes
+  - Enhanced feature selection management
+
+6. Memory Management
+
+  **Optimized Resource Usage**:
+  - Better widget cleanup on layer changes
+  - Improved memory handling for large datasets
+  - More efficient table updates
+
+6. Visual Feedback
+<br></br>  
+
+  **Enhanced User Experience**:
+  - Modern styling for all components
+  - Better visual hierarchy
+  - Improved state indicators
 
 
 ## Tutorial 
