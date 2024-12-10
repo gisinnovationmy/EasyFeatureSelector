@@ -88,13 +88,16 @@ Easy Feature Selector is under development and test with QGIS 3.34.
 
 ## New Features
 
+<div align="justify">
 1. Layer Management
 
 - **New Layer Selection Group Box**: Dedicated section for layer management
 - **Dynamic Layer Selection**: New option to allow dynamic layer selection while working
 - **Layer Combo Box**: QGIS-native layer selection widget (QgsMapLayerComboBox)
 - **Improved Raster Warning**: Clear visual warning when raster layers are selected
-
+</div>
+<br></br>
+<div align="justify">
 2. UI Improvements
 
   **Split Panel Design**:
@@ -102,7 +105,9 @@ Easy Feature Selector is under development and test with QGIS 3.34.
   - Adjustable left/right panels with splitter
   - Minimum width constraints for better usability
   - Resizable panels for custom workspace
-
+</div>
+<br></br>
+<div align="justify">
 3. Feature Attributes
 
   **Enhanced Table Features**:
@@ -110,29 +115,37 @@ Easy Feature Selector is under development and test with QGIS 3.34.
   - Second level selection capability
   - Copy to clipboard functionality
   - Improved table styling and header design
-
+</div>
+<br></br>
+<div align="justify">
 4. Search and Selection
 
   **Advanced Selection Features**:
   - Radio button selection in attribute table
   - Combo box selection for field values
   - Value cell updates with combo box options
-
+</div>
+<br></br>
+<div align="justify">
 5. Technical Enhancements
 
   **Signal Management**:
   - Improved signal connection/disconnection handling
   - Better error handling for layer changes
   - Enhanced feature selection management
-
+</div>
+<br></br>
+<div align="justify">
 6. Memory Management
 
   **Optimized Resource Usage**:
   - Better widget cleanup on layer changes
   - Improved memory handling for large datasets
   - More efficient table updates
-
-6. Visual Feedback
+</div>
+<br></br>
+<div align="justify">
+7. Visual Feedback
 <br></br>  
 
   **Enhanced User Experience**:
