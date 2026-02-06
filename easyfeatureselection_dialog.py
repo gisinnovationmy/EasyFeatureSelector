@@ -1,11 +1,11 @@
-from PyQt5.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QLabel, QComboBox, QListWidget, QLineEdit, QCheckBox, QPushButton, QSlider, QWidget, QTableWidget, QTableWidgetItem, QRadioButton, QButtonGroup, QComboBox as QCombo, QStyle, QSizePolicy, QSplitter
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QFont, QColor, QClipboard
+from qgis.PyQt.QtWidgets import QDialog, QVBoxLayout, QHBoxLayout, QLabel, QComboBox, QListWidget, QLineEdit, QCheckBox, QPushButton, QSlider, QWidget, QTableWidget, QTableWidgetItem, QRadioButton, QButtonGroup, QComboBox as QCombo, QStyle, QSizePolicy, QSplitter
+from qgis.PyQt.QtCore import Qt
+from qgis.PyQt.QtGui import QFont, QColor, QClipboard
 from qgis.core import QgsProject, QgsMapLayer, QgsRasterLayer, QgsCoordinateTransform, QgsCoordinateReferenceSystem, QgsFeatureRequest, QgsMapLayerProxyModel, Qgis
 from qgis.gui import QgsCollapsibleGroupBox, QgsMessageBar, QgsMapLayerComboBox
 from qgis.utils import iface
-from PyQt5.QtWidgets import QApplication, QHeaderView, QAbstractItemView
-from PyQt5.QtCore import QTimer, QPoint, pyqtSignal  
+from qgis.PyQt.QtWidgets import QApplication, QHeaderView, QAbstractItemView
+from qgis.PyQt.QtCore import QTimer, QPoint, pyqtSignal  
 
 class EasyFeatureSelectionDialog(QDialog):
     _instance = None  # Singleton instance for dialog
@@ -33,9 +33,24 @@ class EasyFeatureSelectionDialog(QDialog):
     def __init__(self):
         super().__init__(iface.mainWindow())
         self.setWindowTitle('Easy Feature Selector')
-        self.setWindowModality(Qt.NonModal)
-        self.setAttribute(Qt.WA_DeleteOnClose, True)
-        self.setWindowFlags(Qt.Window | Qt.WindowSystemMenuHint | Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint)
+        try:
+            # Qt6
+            self.setWindowModality(Qt.WindowModality.NonModal)
+        except AttributeError:
+            # Qt5
+            self.setWindowModality(Qt.NonModal)
+        try:
+            # Qt6
+            self.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose, True)
+        except AttributeError:
+            # Qt5
+            self.setAttribute(Qt.WA_DeleteOnClose, True)
+        try:
+            # Qt6
+            self.setWindowFlags(Qt.WindowType.Window | Qt.WindowType.WindowSystemMenuHint | Qt.WindowType.WindowMinMaxButtonsHint | Qt.WindowType.WindowCloseButtonHint)
+        except AttributeError:
+            # Qt5
+            self.setWindowFlags(Qt.Window | Qt.WindowSystemMenuHint | Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint)
 
         # Main Layout
         self.main_layout = QVBoxLayout()
@@ -48,7 +63,12 @@ class EasyFeatureSelectionDialog(QDialog):
         self.main_layout.addWidget(self.content_widget)
         
         # Create splitter
-        self.splitter = QSplitter(Qt.Horizontal)
+        try:
+            # Qt6
+            self.splitter = QSplitter(Qt.Orientation.Horizontal)
+        except AttributeError:
+            # Qt5
+            self.splitter = QSplitter(Qt.Horizontal)
         self.content_layout.addWidget(self.splitter)
 
         # Left Panel Layout (including layer selection and feature attribute groups)
@@ -85,26 +105,28 @@ class EasyFeatureSelectionDialog(QDialog):
         self.layer_group_layout = QVBoxLayout()
         self.layer_group_layout.setSpacing(3)  # Reduce spacing between widgets
         
+        # Add label at the top
+        self.layer_label = QLabel("Select Field from List:")
+        self.layer_group_layout.addWidget(self.layer_label)
+        
         # Layer selection widgets
         self.layer_combo_box = QgsMapLayerComboBox()
         self.layer_combo_box.setFilters(QgsMapLayerProxyModel.VectorLayer)
         self.layer_combo_box.currentIndexChanged.connect(self.on_layer_changed_from_combo)
         self.layer_group_layout.addWidget(self.layer_combo_box)
         
-        # Add raster warning label
-        self.raster_warning = QLabel("This Plugin Supports Only Vectors")
-        self.raster_warning.setStyleSheet("QLabel { color: red; font-weight: bold; }")
-        self.raster_warning.hide()
-        self.layer_group_layout.addWidget(self.raster_warning)
-        
-        self.layer_label = QLabel("Select Field from List:")
-        self.layer_group_layout.addWidget(self.layer_label)
-        
+        # Add checkbox below the dropdown
         self.dynamic_layer_switch = QCheckBox()
         self.dynamic_layer_switch.setText("Allow dynamic Layer Selection")
         self.dynamic_layer_switch.setChecked(False)
         self.dynamic_layer_switch.stateChanged.connect(self.toggle_dynamic_layer_selection)
         self.layer_group_layout.addWidget(self.dynamic_layer_switch)
+        
+        # Add raster warning label
+        self.raster_warning = QLabel("This Plugin Supports Only Vectors")
+        self.raster_warning.setStyleSheet("QLabel { color: red; font-weight: bold; }")
+        self.raster_warning.hide()
+        self.layer_group_layout.addWidget(self.raster_warning)
 
         self.layer_group_box.setLayout(self.layer_group_layout)
         self.left_layout.addWidget(self.layer_group_box)
@@ -205,12 +227,22 @@ class EasyFeatureSelectionDialog(QDialog):
         self.zoom_label = QLabel("Select zoom level:")
         self.search_group_layout.addWidget(self.zoom_label)
         
-        self.zoom_slider = QSlider(Qt.Horizontal)
+        try:
+            # Qt6
+            self.zoom_slider = QSlider(Qt.Orientation.Horizontal)
+        except AttributeError:
+            # Qt5
+            self.zoom_slider = QSlider(Qt.Horizontal)
         self.zoom_slider.setMinimum(0)
         self.zoom_slider.setMaximum(100)
         self.zoom_slider.setValue(20)
         self.zoom_slider.setTickInterval(5)
-        self.zoom_slider.setTickPosition(QSlider.TicksBelow)
+        try:
+            # Qt6
+            self.zoom_slider.setTickPosition(QSlider.TickPosition.TicksBelow)
+        except AttributeError:
+            # Qt5
+            self.zoom_slider.setTickPosition(QSlider.TicksBelow)
         self.search_group_layout.addWidget(self.zoom_slider)
         
         # Two-way selection checkbox
@@ -239,7 +271,12 @@ class EasyFeatureSelectionDialog(QDialog):
         self.splitter.addWidget(self.right_panel)
         
         # Create vertical splitter for the right panel
-        self.vertical_splitter = QSplitter(Qt.Vertical)
+        try:
+            # Qt6
+            self.vertical_splitter = QSplitter(Qt.Orientation.Vertical)
+        except AttributeError:
+            # Qt5
+            self.vertical_splitter = QSplitter(Qt.Vertical)
         self.right_layout.addWidget(self.vertical_splitter)
         
         # Table with headers
@@ -271,12 +308,27 @@ class EasyFeatureSelectionDialog(QDialog):
         # Table widget with increased height
         self.table_widget = QTableWidget()
         self.table_widget.setMinimumHeight(570)  # Reduced to 95% of original height
-        self.table_widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        try:
+            # Qt6
+            self.table_widget.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        except AttributeError:
+            # Qt5
+            self.table_widget.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         self.table_widget.setColumnCount(2)  # Start with 2 columns by default
         self.table_widget.setHorizontalHeaderLabels(["Field Name", "Value"])  # Initial headers without Additional Selection
-        self.table_widget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        try:
+            # Qt6
+            self.table_widget.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
+        except AttributeError:
+            # Qt5
+            self.table_widget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.table_widget.verticalHeader().setVisible(False)
-        self.table_widget.setSelectionMode(QAbstractItemView.NoSelection)
+        try:
+            # Qt6
+            self.table_widget.setSelectionMode(QAbstractItemView.SelectionMode.NoSelection)
+        except AttributeError:
+            # Qt5
+            self.table_widget.setSelectionMode(QAbstractItemView.NoSelection)
         
         # Style the header with right borders
         header_style = """
@@ -311,7 +363,12 @@ class EasyFeatureSelectionDialog(QDialog):
         copy_button_container = QWidget()
         copy_button_layout = QHBoxLayout(copy_button_container)
         copy_button_layout.setContentsMargins(3, 0, 0, 0)  # Small left margin
-        copy_button_layout.addWidget(self.copy_button, 0, Qt.AlignLeft)
+        try:
+            # Qt6
+            copy_button_layout.addWidget(self.copy_button, 0, Qt.AlignmentFlag.AlignLeft)
+        except AttributeError:
+            # Qt5
+            copy_button_layout.addWidget(self.copy_button, 0, Qt.AlignLeft)
         copy_button_layout.addStretch()
         
         # Add copy button container to right panel layout
@@ -351,8 +408,8 @@ class EasyFeatureSelectionDialog(QDialog):
         self.current_list_field = None
         self.connect_signals()
 
-        # Connect to active layer change signal
-        iface.layerTreeView().currentLayerChanged.connect(self.on_layer_changed)
+        # Initialize with the current active layer (but don't connect the signal yet)
+        # The signal will only be connected when dynamic layer selection is enabled
         self.on_layer_changed(iface.activeLayer())  # Initialize with the current active layer
 
         # Set dialog minimum size and make it resizable
@@ -360,7 +417,12 @@ class EasyFeatureSelectionDialog(QDialog):
         self.resize(1000, 700)  # Set initial size
         
         # Make the dialog resizable
-        self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        try:
+            # Qt6
+            self.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        except AttributeError:
+            # Qt5
+            self.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
         # Set initial splitter position (1/3 for left panel, 2/3 for right panel)
         self.splitter.setSizes([300, 600])
@@ -446,9 +508,13 @@ class EasyFeatureSelectionDialog(QDialog):
     def on_layer_changed_from_combo(self, index):
         """Handle layer changes from the combo box."""
         layer = self.layer_combo_box.currentLayer()
-        if self.dynamic_layer_switch.isChecked():
+        # Only update the dialog if dynamic layer selection is disabled
+        # If enabled, the on_layer_changed will be triggered by the layer tree view signal
+        if not self.dynamic_layer_switch.isChecked():
+            self.on_layer_changed(layer)
+        else:
+            # If dynamic selection is enabled, also set the active layer
             iface.setActiveLayer(layer)
-        self.on_layer_changed(layer)
 
     def update_layer_combo_box(self):
         """Populate the layer selection combo box."""
@@ -541,7 +607,12 @@ class EasyFeatureSelectionDialog(QDialog):
                         container = QWidget()
                         layout = QHBoxLayout(container)
                         layout.setContentsMargins(0, 0, 0, 0)
-                        layout.addWidget(radio_button, 0, Qt.AlignCenter)
+                        try:
+                            # Qt6
+                            layout.addWidget(radio_button, 0, Qt.AlignmentFlag.AlignCenter)
+                        except AttributeError:
+                            # Qt5
+                            layout.addWidget(radio_button, 0, Qt.AlignCenter)
                         self.table_widget.setCellWidget(row, 2, container)
                     else:
                         # If it's the selected field, you can set a placeholder or leave it empty
@@ -572,7 +643,12 @@ class EasyFeatureSelectionDialog(QDialog):
         # Remove the combo box and set plain text
         self.table_widget.removeCellWidget(row, 1)
         item = QTableWidgetItem(value)
-        item.setFlags(item.flags() & ~Qt.ItemIsEditable)  # Make it read-only
+        try:
+            # Qt6
+            item.setFlags(item.flags() & ~Qt.ItemFlag.ItemIsEditable)  # Make it read-only
+        except AttributeError:
+            # Qt5
+            item.setFlags(item.flags() & ~Qt.ItemIsEditable)  # Make it read-only
         self.table_widget.setItem(row, 1, item)
 
     def update_value_cell_to_combo_box(self, row, field_name):
@@ -652,7 +728,12 @@ class EasyFeatureSelectionDialog(QDialog):
                 else:
                     # If it's not a combo box, update the text
                     item = QTableWidgetItem(value)
-                    item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+                    try:
+                        # Qt6
+                        item.setFlags(item.flags() & ~Qt.ItemFlag.ItemIsEditable)
+                    except AttributeError:
+                        # Qt5
+                        item.setFlags(item.flags() & ~Qt.ItemIsEditable)
                     self.table_widget.setItem(row, 1, item)
 
     def populate_null_values(self):
@@ -685,7 +766,12 @@ class EasyFeatureSelectionDialog(QDialog):
                 container = QWidget()
                 layout = QHBoxLayout(container)
                 layout.setContentsMargins(0, 0, 0, 0)
-                layout.addWidget(radio_button, 0, Qt.AlignCenter)
+                try:
+                    # Qt6
+                    layout.addWidget(radio_button, 0, Qt.AlignmentFlag.AlignCenter)
+                except AttributeError:
+                    # Qt5
+                    layout.addWidget(radio_button, 0, Qt.AlignCenter)
                 self.table_widget.setCellWidget(row, 2, container)
 
     def check_interactive_selection(self):
@@ -718,7 +804,13 @@ class EasyFeatureSelectionDialog(QDialog):
 
     def toggle_two_way_selection(self, state):
         """Toggle two-way selection functionality and clear the search box when enabled."""
-        if state == Qt.Checked:
+        try:
+            # Qt6
+            checked = (state == Qt.CheckState.Checked)
+        except AttributeError:
+            # Qt5
+            checked = (state == Qt.Checked)
+        if checked:
             self.search_box.clear()
             if self.layer and not isinstance(self.layer, QgsRasterLayer):
                 self.layer.selectionChanged.connect(self.update_listbox_with_selection)
@@ -736,7 +828,12 @@ class EasyFeatureSelectionDialog(QDialog):
             field_name = self.field_combo_box.currentText()
             if field_name:
                 value = str(feature[field_name])
-                items = self.unique_values_list.findItems(value, Qt.MatchExactly)
+                try:
+                    # Qt6
+                    items = self.unique_values_list.findItems(value, Qt.MatchFlag.MatchExactly)
+                except AttributeError:
+                    # Qt5
+                    items = self.unique_values_list.findItems(value, Qt.MatchExactly)
                 if items:
                     self.unique_values_list.setCurrentItem(items[0])
 
@@ -749,19 +846,31 @@ class EasyFeatureSelectionDialog(QDialog):
 
     def toggle_dynamic_layer_selection(self, state):
         """Enable or disable dynamic layer selection based on the checkbox state."""
-        if state == Qt.Checked:
+        try:
+            # Qt6
+            checked = (state == Qt.CheckState.Checked)
+        except AttributeError:
+            # Qt5
+            checked = (state == Qt.Checked)
+        if checked:
+            # Connect the layer tree view signal to respond to layer changes in the Layers Panel
             iface.layerTreeView().currentLayerChanged.connect(self.on_layer_changed)
-            self.layer_combo_box.currentIndexChanged.connect(self.on_layer_changed_from_combo)
         else:
+            # Disconnect the layer tree view signal so it doesn't respond to layer changes
             try:
                 iface.layerTreeView().currentLayerChanged.disconnect(self.on_layer_changed)
-                self.layer_combo_box.currentIndexChanged.disconnect(self.on_layer_changed_from_combo)
             except TypeError:
                 pass
 
     def toggle_additional_selection(self, state):
         """Toggle the visibility of the Additional Selection column and clear all radio buttons."""
-        if state == Qt.Checked:
+        try:
+            # Qt6
+            checked = (state == Qt.CheckState.Checked)
+        except AttributeError:
+            # Qt5
+            checked = (state == Qt.Checked)
+        if checked:
             self.table_widget.setColumnCount(3)
             self.table_widget.setHorizontalHeaderLabels(["Field Name", "Value", "Additional Selection"])
             
@@ -778,9 +887,16 @@ class EasyFeatureSelectionDialog(QDialog):
             self.table_widget.setColumnWidth(2, 200)  # Additional Selection column
             
             # Set resize modes
-            self.table_widget.horizontalHeader().setSectionResizeMode(0, self.table_widget.horizontalHeader().ResizeToContents)
-            self.table_widget.horizontalHeader().setSectionResizeMode(1, self.table_widget.horizontalHeader().Fixed)
-            self.table_widget.horizontalHeader().setSectionResizeMode(2, self.table_widget.horizontalHeader().ResizeToContents)
+            try:
+                # Qt6
+                self.table_widget.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeMode.ResizeToContents)
+                self.table_widget.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.Fixed)
+                self.table_widget.horizontalHeader().setSectionResizeMode(2, QHeaderView.ResizeMode.ResizeToContents)
+            except AttributeError:
+                # Qt5
+                self.table_widget.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeToContents)
+                self.table_widget.horizontalHeader().setSectionResizeMode(1, QHeaderView.Fixed)
+                self.table_widget.horizontalHeader().setSectionResizeMode(2, QHeaderView.ResizeToContents)
             
             # Restore radio buttons if there's a selected feature
             if self.layer and len(self.layer.selectedFeatures()) == 1:
@@ -806,8 +922,14 @@ class EasyFeatureSelectionDialog(QDialog):
             
             # Restore column widths and resize modes for remaining columns
             self.table_widget.setColumnWidth(1, 120)
-            self.table_widget.horizontalHeader().setSectionResizeMode(0, self.table_widget.horizontalHeader().ResizeToContents)
-            self.table_widget.horizontalHeader().setSectionResizeMode(1, self.table_widget.horizontalHeader().Fixed)
+            try:
+                # Qt6
+                self.table_widget.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeMode.ResizeToContents)
+                self.table_widget.horizontalHeader().setSectionResizeMode(1, QHeaderView.ResizeMode.Fixed)
+            except AttributeError:
+                # Qt5
+                self.table_widget.horizontalHeader().setSectionResizeMode(0, QHeaderView.ResizeToContents)
+                self.table_widget.horizontalHeader().setSectionResizeMode(1, QHeaderView.Fixed)
             
             # Restore any combo boxes back to original values
             if self.previous_combo_row is not None:
