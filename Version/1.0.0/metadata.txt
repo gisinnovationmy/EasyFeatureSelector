@@ -1,0 +1,25 @@
+[general]
+name=Easy Feature Selector
+qgisMinimumVersion=3.0
+description=The Easy Feature Selector plugin for QGIS is a practical tool designed to simplify interactions with vector data. 
+version=1.0.0
+author=GIS Innovation Sdn. Bhd.
+email=mygis@gis.my
+
+about=It provides a straightforward interface for selecting fields from an attribute table, browsing and searching unique values, and zooming or panning to features directly on the map. The plugin also displays detailed attribute information, including a clear indication of whether a feature has geometry, and includes a convenient feature for copying all table data to the clipboard for easy export or analysis.
+Note: Even though you can select multiple features with the same unique field value, this tool was developed with the intent of working with one feature at a time.
+
+homepage=https://gis.com.my/training/qgis-plugin/easy-feature-selector/
+tracker=https://github.com/gisinnovationmy/EasyFeatureSelector/issues
+repository=https://github.com/gisinnovationmy/EasyFeatureSelector
+
+tags=python
+category=Vector
+icon=icon.png
+experimental=False
+hasProcessingProvider=no
+deprecated=False
+server=False
+
+changelog=1.0.0 
+          - Initial release of the plugin.
