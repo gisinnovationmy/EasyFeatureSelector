@@ -11,9 +11,9 @@ The plugin also displays detailed attribute information, including a clear indic
 
 The extension is available from the official repository, [QGIS plugins page](https://plugins.qgis.org/plugins/easyfeatureselection/). 
 
-Use the QGIS Plugins menu to install the Easy Feature Selector, [QGIS manual](https://docs.qgis.org/3.34/en/docs/user_manual/plugins/plugins.html).
+Use the QGIS Plugins menu to install the Easy Feature Selector, [QGIS manual](https://docs.qgis.org/3.44/en/docs/user_manual/plugins/plugins.html).
 
-Easy Feature Selector is under development and test with QGIS 3.34.
+Easy Feature Selector is under development and test with QGIS 4.0.
 
 
 ## Functionality
